@@ -1,0 +1,42 @@
+classDiagram
+    class Task {
+        +int Id
+        +string Title
+        +string Description
+        +Priority Priority
+        +DateTime Deadline
+        +Status Status
+        +User AssignedUser
+    }
+    class User {
+        +int Id
+        +string Name
+        +List~Task~ AssignedTasks
+    }
+    class TaskManager {
+        +List~Task~ Tasks
+        +List~User~ Users
+        +AddTask(Task task)
+        +RemoveTask(int taskId)
+        +UpdateTask(Task task)
+        +GetTask(int taskId)
+        +AssignTaskToUser(int taskId, int userId)
+    }
+    class Priority {
+        <<enumeration>>
+        Low
+        Medium
+        High
+    }
+    class Status {
+        <<enumeration>>
+        InProgress
+        Completed
+        Backlog
+    }
+
+    Task "0..*" -- "1" User : assigned to
+    TaskManager "1" -- "0..*" Task : manages
+    TaskManager "1" -- "0..*" User : manages
+    Task -- Priority : has
+    Task -- Status : has
