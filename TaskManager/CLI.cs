@@ -73,7 +73,13 @@ namespace TaskManager
 
             foreach (var task in tasks)
             {
-                Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority}, Status: {task.Status}, Deadline: {task.Deadline.ToShortDateString()}");
+                    string dataDisply = $"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority}, Status: {task.Status}, Deadline: {task.Deadline.ToShortDateString()}";
+                if (task.AssignedUserId != Guid.Empty)
+                {
+                    User user = taskManager.getUser(task.AssignedUserId);
+                    Console.WriteLine(dataDisply + $" Assigned: {user.Email}");
+                }
+                Console.WriteLine(dataDisply);
             }
         }
 

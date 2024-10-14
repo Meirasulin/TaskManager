@@ -43,7 +43,10 @@ namespace TaskManager
         {
             tasks.RemoveAll(t => t.Id == taskId);
         }
-
+        public User getUser(Guid userId)
+        {
+            return users.Find(u => u.Id == userId);
+        }
         public void AssignedTask(Guid taskId, string userEmail)
         {
             Task existingTask = GetTask(taskId);
