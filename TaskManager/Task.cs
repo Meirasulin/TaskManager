@@ -32,7 +32,7 @@ namespace TaskManager
         public Priority Priority { get; set; }
         public DateTime Deadline { get; set; }
         public Status Status { get; set; }
-        public Guid AssignedUserId { get; private set; }
+        public Guid AssignedUserId { get;  set; }
 
         public Task(string title, string description, Priority priority, DateTime deadline)
         {

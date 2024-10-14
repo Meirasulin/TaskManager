@@ -8,9 +8,9 @@ namespace TaskManager
         public Guid Id { get; set; }
         public string Email { get; set; }
 
-        public User(Guid id, string email)
+        public User(string email)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Email = email;
         }
     }
