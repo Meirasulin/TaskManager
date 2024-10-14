@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TaskManager
 {
@@ -10,6 +6,9 @@ namespace TaskManager
     {
         static void Main(string[] args)
         {
+            TaskManager taskManager = new TaskManager();
+            CLI cli = new CLI(taskManager);
+            cli.Run();
         }
     }
 }
