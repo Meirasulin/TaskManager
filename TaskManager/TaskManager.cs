@@ -58,6 +58,10 @@ namespace TaskManager
                 }
                 existingTask.AssignedUserId = user.Id;
             }
+            else
+            {
+                throw new ArgumentException("Task not found", nameof(taskId));
+            }
         }
     }
 }
